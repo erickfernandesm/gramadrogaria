@@ -27,11 +27,11 @@ export function Location() {
   const { address, hours, phone } = storeConfig;
 
   return (
-    <section id="contato" className="bg-sand">
+    <section id="contato" className="border-t border-line">
       <div className="container-page grid gap-8 py-12 lg:grid-cols-[1fr_1.2fr] lg:gap-14 lg:py-20">
         <div>
           <p className="eyebrow">Localização e contato</p>
-          <h2 className="mt-3 text-2xl font-bold sm:text-3xl">Estamos no Grama</h2>
+          <h2 className="mt-3 text-3xl font-bold sm:text-4xl">Estamos no Grama</h2>
 
           <dl className="mt-5 divide-y divide-line-strong/60">
             <InfoRow icon={<MapPin className="size-5" aria-hidden="true" />} label="Endereço">
@@ -97,7 +97,7 @@ export function Location() {
           </div>
         </div>
 
-        <div className="overflow-hidden rounded-lg border border-line bg-paper">
+        <div className="overflow-hidden rounded-2xl border border-line bg-sand shadow-pop">
           <iframe
             src={mapEmbedUrl()}
             title={`Mapa: ${storeConfig.name}, ${address.street}`}

@@ -18,7 +18,7 @@ export function ProductShelf({ id, title, products, href, linkLabel, notice }: P
   if (products.length === 0) return null;
 
   return (
-    <section id={id} className="container-page py-10 lg:py-14">
+    <section id={id} className="container-page pb-14 pt-2 lg:pb-20">
       <div className="flex flex-wrap items-end justify-between gap-x-6 gap-y-2">
         <h2 className="text-2xl font-bold sm:text-3xl">{title}</h2>
         <Link

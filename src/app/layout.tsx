@@ -64,8 +64,8 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           Pular para o conteúdo
         </a>
         <CartProvider>
-          <Header />
           <ServiceBar />
+          <Header />
           <main id="conteudo">{children}</main>
           <Footer />
           <CartDrawer />

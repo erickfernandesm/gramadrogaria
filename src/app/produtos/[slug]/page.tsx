@@ -15,6 +15,7 @@ import {
   getServices,
   isOffer,
 } from "@/lib/catalog";
+import { categoryTint } from "@/lib/categoryTheme";
 import { jsonLdString, productJsonLd } from "@/lib/seo";
 import type { CategorySlug } from "@/types";
 
@@ -83,7 +84,9 @@ export default async function ProductPage({ params }: PageProps) {
       </nav>
 
       <div className="mt-5 grid gap-8 md:grid-cols-2 lg:gap-16">
-        <div className="relative aspect-square overflow-hidden rounded-lg bg-sand md:sticky md:top-32 md:self-start">
+        <div
+          className={`relative aspect-square overflow-hidden rounded-2xl md:sticky md:top-32 md:self-start ${categoryTint[product.category]}`}
+        >
           <Image
             src={product.image}
             alt={product.name}
@@ -97,8 +100,8 @@ export default async function ProductPage({ params }: PageProps) {
         <div>
           {badge ? (
             <span
-              className={`inline-block rounded-sm px-1.5 py-0.5 text-xs font-bold uppercase tracking-wide ${
-                badge === "Genérico" ? "bg-sun text-ink" : "bg-brand text-white"
+              className={`inline-block rounded-full px-2 py-0.5 text-xs font-bold uppercase tracking-wide ${
+                badge === "Genérico" ? "bg-ink text-sun" : "bg-brand text-white"
               }`}
             >
               {badge}

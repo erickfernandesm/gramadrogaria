@@ -1,16 +1,18 @@
 import Link from "next/link";
 import type { ComponentProps, ReactNode } from "react";
 
-type Variant = "primary" | "whatsapp" | "dark" | "outline" | "ghost";
+type Variant = "primary" | "whatsapp" | "dark" | "sun" | "outline" | "outlineLight" | "ghost";
 type Size = "sm" | "md" | "lg";
 
 const base =
-  "inline-flex items-center justify-center gap-2 rounded-md font-semibold whitespace-nowrap transition-colors duration-150 disabled:opacity-50 disabled:pointer-events-none";
+  "inline-flex items-center justify-center gap-2 rounded-lg font-semibold whitespace-nowrap transition-colors duration-150 disabled:opacity-50 disabled:pointer-events-none";
 
 const variants: Record<Variant, string> = {
   primary: "bg-brand text-white hover:bg-brand-dark",
   whatsapp: "bg-wa text-white hover:bg-wa-dark",
   dark: "bg-ink text-white hover:bg-ink-soft",
+  sun: "bg-sun text-ink hover:bg-[#e6a400]",
+  outlineLight: "border border-white/45 text-white hover:bg-white/10",
   outline: "border border-line-strong bg-paper text-ink hover:border-ink",
   ghost: "text-ink hover:bg-sand",
 };
