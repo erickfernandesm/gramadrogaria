@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" role="img" aria-label="Imagem ilustrativa">
+  <rect width="400" height="400" fill="#F5F2EC"/>
+    <rect x="96" y="150" width="208" height="124" rx="6" fill="#FFFFFF" stroke="#CFC6B8" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+    <rect x="97.500" y="226" width="205" height="30" fill="#FBB402" opacity=".85"/>
+    <path d="M120 180h96M120 200h60" fill="none" stroke="#CFC6B8" stroke-width="3" stroke-linecap="round"/>
+    <text x="200" y="248" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" font-weight="700" fill="#1C1614">G</text>
+</svg>

@@ -1,0 +1,180 @@
+@import "tailwindcss";
+
+/*
+ * Design system da Drogaria Grama.
+ * As cores vêm da logo: vermelho profundo, amarelo e branco sobre fundo escuro.
+ * O vermelho é reservado a ações e estados ativos; o amarelo aparece só como
+ * detalhe (o "sorriso" da logo). O resto é papel, tinta e muito espaço.
+ */
+@theme {
+  --color-brand: #b40a0a;
+  --color-brand-dark: #8f0606;
+  --color-brand-soft: #fbeeec;
+  --color-sun: #fbb402;
+  --color-sun-soft: #fff4d6;
+
+  --color-ink: #1c1614;
+  --color-ink-soft: #564d48;
+  --color-ink-mute: #7a706a;
+
+  --color-paper: #ffffff;
+  --color-sand: #f7f4ee;
+  --color-line: #e6e0d6;
+  --color-line-strong: #cfc6b8;
+
+  --color-wa: #0e7a43;
+  --color-wa-dark: #0a6135;
+
+  --font-sans: var(--font-body), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-heading), ui-sans-serif, system-ui, sans-serif;
+
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 10px;
+
+  --shadow-panel: 0 12px 40px -12px rgb(28 22 20 / 0.28);
+  --shadow-pop: 0 6px 20px -8px rgb(28 22 20 / 0.22);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 6.5rem;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-ink);
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+
+  ::selection {
+    background: var(--color-sun);
+    color: var(--color-ink);
+  }
+
+  /* Evita o zoom automático do iOS ao focar campos. */
+  input,
+  select,
+  textarea {
+    font-size: 1rem;
+  }
+}
+
+@layer components {
+  .container-page {
+    width: 100%;
+    max-width: 78rem;
+    margin-inline: auto;
+    padding-inline: 1rem;
+  }
+  @media (min-width: 640px) {
+    .container-page {
+      padding-inline: 1.5rem;
+    }
+  }
+  @media (min-width: 1024px) {
+    .container-page {
+      padding-inline: 2rem;
+    }
+  }
+
+  /* Rótulo pequeno acima dos títulos de seção. */
+  .eyebrow {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-brand);
+  }
+
+  .field {
+    width: 100%;
+    height: 2.875rem;
+    padding-inline: 0.875rem;
+    border: 1px solid var(--color-line-strong);
+    border-radius: var(--radius-md);
+    background: var(--color-paper);
+    color: var(--color-ink);
+    transition: border-color 0.15s;
+  }
+  .field::placeholder {
+    color: var(--color-ink-mute);
+  }
+  .field:hover {
+    border-color: var(--color-ink-mute);
+  }
+  .field:focus-visible {
+    outline: 2px solid var(--color-ink);
+    outline-offset: 0;
+    border-color: var(--color-ink);
+  }
+  textarea.field {
+    height: auto;
+    padding-block: 0.75rem;
+    resize: vertical;
+  }
+}
+
+@keyframes panel-in-right {
+  from {
+    transform: translateX(100%);
+  }
+}
+@keyframes panel-in-up {
+  from {
+    transform: translateY(1rem);
+    opacity: 0;
+  }
+}
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+}
+
+.animate-panel-right {
+  animation: panel-in-right 0.22s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.animate-panel-up {
+  animation: panel-in-up 0.18s ease-out;
+}
+.animate-fade {
+  animation: fade-in 0.18s ease-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
